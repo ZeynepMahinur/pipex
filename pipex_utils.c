@@ -1,6 +1,6 @@
 #include "pipex.h"
 
-static char **free_split(char **arr)
+char **free_split(char **arr)
 {
     size_t  i;
 
@@ -28,7 +28,7 @@ char    *cmd_path(char *cmd, char **envp)
     i = 0;
     while (paths[i])
     {
-        tmp = ft_strjoin(paths[i], '/');
+        tmp = ft_strjoin(paths[i], "/");
         total_path = ft_strjoin(tmp, cmd);
         free (tmp);
         if (access(total_path, X_OK) == 0)

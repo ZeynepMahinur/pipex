@@ -2,6 +2,7 @@
 #define PIPEX_H
 
 #include "libft/libft.h"
+#include "printf/ft_printf.h"
 #include <unistd.h>
 #include <fcntl.h>
 #include <stdlib.h>
@@ -19,8 +20,9 @@ typedef struct  s_pipex
     pid_t pid2;
 }               t_pipex;
 
-int child_cmd1(t_pipex *pipex, char *file1, char *cmd, char **envp);
-int child_cmd2(t_pipex *pipex, char *file2, char *cmd, char **envp);
+int main(int argc, char **argv, char **envp);
+char **free_split(char **arr);
+char    *cmd_path(char *cmd, char **envp);
 
 
 #endif
