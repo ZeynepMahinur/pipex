@@ -1,6 +1,6 @@
 #include "pipex.h"
 
-void **free_split(char **arr)
+void free_split(char **arr)
 {
     size_t  i;
 
