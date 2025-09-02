@@ -13,7 +13,6 @@ static char    **find_cmd(char *cmd, char **envp)
     {
         perror("Command not found");
         free_split(args);
-        free(path);
         exit(1);
     }
     free(args[0]);
@@ -42,7 +41,7 @@ static int child_cmd1(t_pipex *pipex, char *file1, char *cmd, char **envp)
     exit (1);
 }
 
-static int child_cmd2(t_pipex *pipex, char *file2, char *cmd, char **envp)
+static int child_cmd2(t_pipex *pipex, char *cmd, char *file2, char **envp)
 {
     char **args;
 
@@ -54,7 +53,7 @@ static int child_cmd2(t_pipex *pipex, char *file2, char *cmd, char **envp)
         exit (1);
     }
     dup2(pipex->outfile, 1);
-    dup2(pipex-> fd[0], 0);
+    dup2(pipex->fd[0], 0);
     close(pipex->fd[1]);
     close(pipex->fd[0]);
     execve(args[0], args, envp);

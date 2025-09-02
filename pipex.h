@@ -21,7 +21,7 @@ typedef struct  s_pipex
 }               t_pipex;
 
 int main(int argc, char **argv, char **envp);
-char **free_split(char **arr);
+void **free_split(char **arr);
 char    *cmd_path(char *cmd, char **envp);
 
 
