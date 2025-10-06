@@ -24,7 +24,7 @@ void	free_split(char **arr)
 	free(arr);
 }
 
-char	*find_cmd_path(char *cmd, char **paths)
+static char	*find_cmd_path(char *cmd, char **paths)
 {
 	char	*tmp;
 	char	*total_path;

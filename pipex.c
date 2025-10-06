@@ -64,8 +64,7 @@ static void	child_cmd2(t_pipex *pipex, char *cmd, char *file2, char **envp)
 
 	pipex->outfile = open(file2, O_WRONLY | O_CREAT | O_TRUNC, 0644);
 	if (pipex->outfile < 0)
-	exit (1);
-
+		exit (1);
 	args = find_cmd(cmd, envp);
 	dup2(pipex->outfile, 1);
 	dup2(pipex->fd[0], 0);
@@ -78,7 +77,7 @@ static void	child_cmd2(t_pipex *pipex, char *cmd, char *file2, char **envp)
 	}
 }
 
-static void		connect_children(t_pipex *pipex, char *argv[], char **envp)
+static void	connect_children(t_pipex *pipex, char *argv[], char **envp)
 {
 	pipex->pid1 = fork();
 	if (pipex->pid1 == 0)
@@ -93,8 +92,8 @@ static void		connect_children(t_pipex *pipex, char *argv[], char **envp)
 int	main(int argc, char **argv, char **envp)
 {
 	t_pipex	pipex;
-	int status1;
-	int status2;
+	int		status1;
+	int		status2;
 
 	if (argc != 5)
 	{
@@ -110,6 +109,6 @@ int	main(int argc, char **argv, char **envp)
 	waitpid(pipex.pid1, &status1, 0);
 	waitpid(pipex.pid2, &status2, 0);
 	if (WIFEXITED(status2))
-		return WEXITSTATUS(status2);
+		return (WEXITSTATUS(status2));
 	return (0);
 }
