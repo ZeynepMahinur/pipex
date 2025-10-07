@@ -6,22 +6,20 @@
 /*   By: zarikan <zarikan@student.42istanbul.com.t  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/03 12:48:55 by zarikan           #+#    #+#             */
-/*   Updated: 2025/09/03 12:49:02 by zarikan          ###   ########.fr       */
+/*   Updated: 2025/09/08 18:38:00 by zarikan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PIPEX_H
 # define PIPEX_H
 
-# include "libft/libft.h"
-# include "printf/ft_printf.h"
+# include "../pipex_folder/libft/libft.h"
+# include "../pipex_folder/printf/ft_printf.h"
 # include <unistd.h>
 # include <fcntl.h>
 # include <stdlib.h>
 # include <sys/wait.h>
 # include <stdio.h>
-# include <string.h>
-# include <errno.h>
 
 typedef struct s_pipex
 {

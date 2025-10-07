@@ -6,7 +6,7 @@
 /*   By: zarikan <zarikan@student.42istanbul.com.t  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/03 12:45:25 by zarikan           #+#    #+#             */
-/*   Updated: 2025/09/03 12:45:40 by zarikan          ###   ########.fr       */
+/*   Updated: 2025/09/08 18:37:36 by zarikan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,15 +23,18 @@ static char	**find_cmd(char *cmd, char **envp)
 		exit(127);
 	}
 	args = ft_split(cmd, ' ');
-	if (!args)
+	if (!args || !args[0] || !*args[0])
+	{
+		free_split(args);
+		ft_printf("Invalid command\n");
 		exit(1);
+	}
 	path = cmd_path(args[0], envp);
 	if (!path)
 	{
 		free_split(args);
 		exit(127);
 	}
-	free(args[0]);
 	args[0] = path;
 	return (args);
 }
